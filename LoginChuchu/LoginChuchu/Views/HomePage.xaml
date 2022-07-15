@@ -1,0 +1,278 @@
+﻿<?xml version="1.0" encoding="UTF-8" ?>
+<ContentPage
+    x:Class="LoginChuchu.Views.HomePage"
+    xmlns="http://xamarin.com/schemas/2014/forms"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:ios="clr-namespace:Xamarin.Forms.PlatformConfiguration.iOSSpecific;assembly=Xamarin.Forms.Core"
+    Title="New Item"
+    ios:Page.UseSafeArea="true"
+    NavigationPage.HasBackButton="false"
+    NavigationPage.HasNavigationBar="true"
+    Shell.PresentationMode="ModalAnimated">
+    <!--  Navbar  -->
+    <NavigationPage.TitleView>
+        <FlexLayout
+            Margin="0,5,0,5"
+            Direction="Row"
+            JustifyContent="SpaceBetween">
+            <Grid>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="*" />
+                    <ColumnDefinition Width="*" />
+                </Grid.ColumnDefinitions>
+                <Image
+                    Grid.Column="0"
+                    Aspect="AspectFit"
+                    HeightRequest="48"
+                    Source="frog_logo_small"
+                    WidthRequest="48" />
+                <Label
+                    Grid.Column="1"
+                    FontAttributes="Bold"
+                    FontSize="30"
+                    Text="Frogs"
+                    TextColor="White"
+                    VerticalOptions="Center" />
+            </Grid>
+            <!--  Clicked="OnLogoutButtonClicked"  -->
+            <Button
+                BackgroundColor="#467A98"
+                BorderRadius="20"
+                Command="{Binding LogoutButtonClickCommand}"
+                Text="Logout" />
+        </FlexLayout>
+    </NavigationPage.TitleView>
+
+    <ContentPage.Content>
+        <ScrollView BackgroundColor="Black" Orientation="Vertical">
+            <FlexLayout Direction="Column">
+
+                <!--  Title and Subtitle  -->
+                <StackLayout Margin="0,30,0,0">
+                    <Label
+                        FontAttributes="Bold"
+                        FontSize="30"
+                        HorizontalTextAlignment="Center"
+                        Text="Beginner Frogs"
+                        TextColor="White" />
+                    <Label
+                        Padding="10,0"
+                        FontSize="Small"
+                        HorizontalTextAlignment="Center"
+                        Text="All of this selection look great and can be kept as an interactive pet or as part of a larger living terrarium/feature terrarium. The husbandry is simple, making them a great choice for beginners or young keepers."
+                        TextColor="White" />
+                </StackLayout>
+
+                <!--  First Row  -->
+                <Frame
+                    BackgroundColor="Black"
+                    HeightRequest="200"
+                    WidthRequest="400">
+                    <FlexLayout Direction="Row" JustifyContent="SpaceEvenly">
+                        <!--  Column 1  -->
+                        <StackLayout>
+                            <Image
+                                Aspect="AspectFill"
+                                HeightRequest="150"
+                                Source="dartfrog_1"
+                                WidthRequest="150" />
+                            <Label Text="Blue Poison Dart Frog" TextColor="White" />
+                            <Label
+                                FontAttributes="Bold"
+                                Text="from ₱2700"
+                                TextColor="White" />
+                        </StackLayout>
+                        <!--  Column 2  -->
+                        <StackLayout>
+                            <Image
+                                Aspect="AspectFill"
+                                HeightRequest="150"
+                                Source="dartfrog_2"
+                                WidthRequest="150" />
+                            <Label Text="Spotted Stream Frog" TextColor="White" />
+                            <Label
+                                FontAttributes="Bold"
+                                Text="from ₱2700"
+                                TextColor="White" />
+                        </StackLayout>
+                    </FlexLayout>
+                </Frame>
+
+                <!--  Second Row  -->
+                <Frame
+                    BackgroundColor="Black"
+                    HeightRequest="200"
+                    WidthRequest="400">
+                    <FlexLayout Direction="Row" JustifyContent="SpaceEvenly">
+                        <!--  Column 1  -->
+                        <StackLayout>
+                            <Image
+                                Aspect="AspectFill"
+                                HeightRequest="150"
+                                Source="pacmanfrog_1"
+                                WidthRequest="150" />
+                            <Label Text="Pac-Man Frog" TextColor="White" />
+                            <Label
+                                FontAttributes="Bold"
+                                Text="from ₱2000"
+                                TextColor="White" />
+                        </StackLayout>
+                        <!--  Column 2  -->
+                        <StackLayout>
+                            <Image
+                                Aspect="AspectFill"
+                                HeightRequest="150"
+                                Source="treefrog_1"
+                                WidthRequest="150" />
+                            <Label Text="Red-Eyed Tree Frog" TextColor="White" />
+                            <Label
+                                FontAttributes="Bold"
+                                Text="from ₱3800"
+                                TextColor="White" />
+                        </StackLayout>
+                    </FlexLayout>
+                </Frame>
+                <!--  First Row  -->
+                <Frame
+                    BackgroundColor="Black"
+                    HeightRequest="200"
+                    WidthRequest="400">
+                    <FlexLayout Direction="Row" JustifyContent="SpaceEvenly">
+                        <!--  Column 1  -->
+                        <StackLayout>
+                            <Image
+                                Aspect="AspectFill"
+                                HeightRequest="150"
+                                Source="dartfrog_1"
+                                WidthRequest="150" />
+                            <Label Text="Blue Poison Dart Frog" TextColor="White" />
+                            <Label
+                                FontAttributes="Bold"
+                                Text="from ₱2700"
+                                TextColor="White" />
+                        </StackLayout>
+                        <!--  Column 2  -->
+                        <StackLayout>
+                            <Image
+                                Aspect="AspectFill"
+                                HeightRequest="150"
+                                Source="dartfrog_2"
+                                WidthRequest="150" />
+                            <Label Text="Spotted Stream Frog" TextColor="White" />
+                            <Label
+                                FontAttributes="Bold"
+                                Text="from ₱2700"
+                                TextColor="White" />
+                        </StackLayout>
+                    </FlexLayout>
+                </Frame>
+
+                <!--  Second Row  -->
+                <Frame
+                    BackgroundColor="Black"
+                    HeightRequest="200"
+                    WidthRequest="400">
+                    <FlexLayout Direction="Row" JustifyContent="SpaceEvenly">
+                        <!--  Column 1  -->
+                        <StackLayout>
+                            <Image
+                                Aspect="AspectFill"
+                                HeightRequest="150"
+                                Source="pacmanfrog_1"
+                                WidthRequest="150" />
+                            <Label Text="Pac-Man Frog" TextColor="White" />
+                            <Label
+                                FontAttributes="Bold"
+                                Text="from ₱2000"
+                                TextColor="White" />
+                        </StackLayout>
+                        <!--  Column 2  -->
+                        <StackLayout>
+                            <Image
+                                Aspect="AspectFill"
+                                HeightRequest="150"
+                                Source="treefrog_1"
+                                WidthRequest="150" />
+                            <Label Text="Red-Eyed Tree Frog" TextColor="White" />
+                            <Label
+                                FontAttributes="Bold"
+                                Text="from ₱3800"
+                                TextColor="White" />
+                        </StackLayout>
+                    </FlexLayout>
+                </Frame>
+                <!--  First Row  -->
+                <Frame
+                    BackgroundColor="Black"
+                    HeightRequest="200"
+                    WidthRequest="400">
+                    <FlexLayout Direction="Row" JustifyContent="SpaceEvenly">
+                        <!--  Column 1  -->
+                        <StackLayout>
+                            <Image
+                                Aspect="AspectFill"
+                                HeightRequest="150"
+                                Source="dartfrog_1"
+                                WidthRequest="150" />
+                            <Label Text="Blue Poison Dart Frog" TextColor="White" />
+                            <Label
+                                FontAttributes="Bold"
+                                Text="from ₱2700"
+                                TextColor="White" />
+                        </StackLayout>
+                        <!--  Column 2  -->
+                        <StackLayout>
+                            <Image
+                                Aspect="AspectFill"
+                                HeightRequest="150"
+                                Source="dartfrog_2"
+                                WidthRequest="150" />
+                            <Label Text="Spotted Stream Frog" TextColor="White" />
+                            <Label
+                                FontAttributes="Bold"
+                                Text="from ₱2700"
+                                TextColor="White" />
+                        </StackLayout>
+                    </FlexLayout>
+                </Frame>
+
+                <!--  Second Row  -->
+                <Frame
+                    BackgroundColor="Black"
+                    HeightRequest="200"
+                    WidthRequest="400">
+                    <FlexLayout Direction="Row" JustifyContent="SpaceEvenly">
+                        <!--  Column 1  -->
+                        <StackLayout>
+                            <Image
+                                Aspect="AspectFill"
+                                HeightRequest="150"
+                                Source="pacmanfrog_1"
+                                WidthRequest="150" />
+                            <Label Text="Pac-Man Frog" TextColor="White" />
+                            <Label
+                                FontAttributes="Bold"
+                                Text="from ₱2000"
+                                TextColor="White" />
+                        </StackLayout>
+                        <!--  Column 2  -->
+                        <StackLayout>
+                            <Image
+                                Aspect="AspectFill"
+                                HeightRequest="150"
+                                Source="treefrog_1"
+                                WidthRequest="150" />
+                            <Label Text="Red-Eyed Tree Frog" TextColor="White" />
+                            <Label
+                                FontAttributes="Bold"
+                                Text="from ₱3800"
+                                TextColor="White" />
+                        </StackLayout>
+                    </FlexLayout>
+                </Frame>
+            </FlexLayout>
+
+        </ScrollView>
+    </ContentPage.Content>
+
+</ContentPage>

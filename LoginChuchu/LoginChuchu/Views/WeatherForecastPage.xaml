@@ -1,0 +1,241 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage
+    x:Class="LoginChuchu.Views.WeatherForecastPage"
+    xmlns="http://xamarin.com/schemas/2014/forms"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:system="clr-namespace:System;assembly=netstandard"
+    NavigationPage.HasBackButton="false"
+    NavigationPage.HasNavigationBar="true">
+    <NavigationPage.TitleView>
+        <FlexLayout
+            Margin="0,5,0,5"
+            Direction="Row"
+            JustifyContent="SpaceBetween">
+            <Button
+                BackgroundColor="#467A98"
+                BorderRadius="20"
+                Command="{Binding LogoutButtonClickCommand}"
+                Text="Logout" />
+        </FlexLayout>
+    </NavigationPage.TitleView>
+    <ContentPage.Content>
+        <Grid Padding="0">
+            <Image Aspect="AspectFill" Source="{Binding BackgroundImage}" />
+            <CollectionView ItemsSource="{Binding OneDayForecast}">
+                <CollectionView.ItemsLayout>
+                    <LinearItemsLayout Orientation="Vertical" />
+                </CollectionView.ItemsLayout>
+                <CollectionView.Header>
+                    <Picker
+                        x:Name="picker"
+                        Title="Select a City"
+                        ItemDisplayBinding="{Binding CityName}"
+                        ItemsSource="{Binding Cities}"
+                        SelectedItem="{Binding SelectedCity, Mode=TwoWay}" />
+                </CollectionView.Header>
+                <CollectionView.ItemTemplate>
+                    <DataTemplate>
+                        <StackLayout Orientation="Vertical">
+                            <!--  Weather  Icon  -->
+                            <Image
+                                Aspect="AspectFit"
+                                HeightRequest="170"
+                                Source="{Binding Weather[0].IconUrl}"
+                                WidthRequest="170" />
+                            <!--  Weather Icon Description  -->
+                            <Label
+                                FontAttributes="Bold"
+                                Style="{StaticResource mainLabelStyle}"
+                                Text="{Binding Weather[0].Main}" />
+                            <!--  City  -->
+                            <Label Style="{StaticResource mainLabelStyle}" Text="{Binding Name}" />
+                            <!--  Main Temperature  -->
+                            <StackLayout
+                                HorizontalOptions="Center"
+                                Orientation="Horizontal"
+                                Spacing="5"
+                                VerticalOptions="Center">
+                                <Label
+                                    Padding="0,30"
+                                    FontSize="90"
+                                    Style="{StaticResource mainLabelStyle}"
+                                    Text="{Binding Main.Temp}" />
+                                <Image
+                                    HeightRequest="58"
+                                    Source="centigrade_icon"
+                                    VerticalOptions="Center" />
+                            </StackLayout>
+
+                            <!--  Lows and Highs  -->
+                            <StackLayout
+                                HorizontalOptions="Center"
+                                Orientation="Horizontal"
+                                Spacing="30"
+                                VerticalOptions="Center">
+                                <StackLayout
+                                    HorizontalOptions="Center"
+                                    Orientation="Horizontal"
+                                    Spacing="5"
+                                    VerticalOptions="Center">
+                                    <Image
+                                        HeightRequest="32"
+                                        Source="coldtemp_icon"
+                                        VerticalOptions="Center" />
+                                    <Label Style="{StaticResource mainLabelStyle}">
+                                        <Label.FormattedText>
+                                            <FormattedString>
+                                                <Span Text="{Binding Main.TempMin}" />
+                                                <Span Style="{StaticResource unitLabelStyle}" Text="°C" />
+                                                <Span Text="{x:Static system:Environment.NewLine}" />
+                                                <Span Style="{StaticResource unitLabelStyle}" Text="Min" />
+                                            </FormattedString>
+                                        </Label.FormattedText>
+                                    </Label>
+                                </StackLayout>
+
+                                <StackLayout
+                                    HorizontalOptions="Center"
+                                    Orientation="Horizontal"
+                                    Spacing="5"
+                                    VerticalOptions="Center">
+                                    <Image
+                                        HeightRequest="32"
+                                        Source="hottemp_icon"
+                                        VerticalOptions="Center" />
+                                    <Label Style="{StaticResource mainLabelStyle}">
+                                        <Label.FormattedText>
+                                            <FormattedString>
+                                                <Span Text="{Binding Main.TempMax}" />
+                                                <Span Style="{StaticResource unitLabelStyle}" Text="°C" />
+                                                <Span Text="{x:Static system:Environment.NewLine}" />
+                                                <Span Style="{StaticResource unitLabelStyle}" Text="Max" />
+                                            </FormattedString>
+                                        </Label.FormattedText>
+                                    </Label>
+                                </StackLayout>
+
+                            </StackLayout>
+
+                            <StackLayout
+                                Margin="0,20,0,0"
+                                HorizontalOptions="Center"
+                                Orientation="Horizontal"
+                                Spacing="30"
+                                VerticalOptions="Center">
+                                <!--  Humidity, WindSpeed  -->
+                                <StackLayout
+                                    HorizontalOptions="Center"
+                                    Orientation="Horizontal"
+                                    Spacing="5"
+                                    VerticalOptions="Center">
+                                    <Image
+                                        HeightRequest="32"
+                                        Source="humidity_icon"
+                                        VerticalOptions="Center" />
+                                    <Label Style="{StaticResource mainLabelStyle}">
+                                        <Label.FormattedText>
+                                            <FormattedString>
+                                                <Span Text="{Binding Main.Humidity}" />
+                                                <Span Style="{StaticResource unitLabelStyle}" Text="%" />
+                                                <Span Text="{x:Static system:Environment.NewLine}" />
+                                                <Span Style="{StaticResource unitLabelStyle}" Text="Humidity" />
+                                            </FormattedString>
+                                        </Label.FormattedText>
+                                    </Label>
+                                </StackLayout>
+
+                                <StackLayout
+                                    HorizontalOptions="Center"
+                                    Orientation="Horizontal"
+                                    Spacing="5"
+                                    VerticalOptions="Center">
+                                    <Image
+                                        HeightRequest="32"
+                                        Source="windspeed_icon"
+                                        VerticalOptions="Center" />
+                                    <Label Style="{StaticResource mainLabelStyle}">
+                                        <Label.FormattedText>
+                                            <FormattedString>
+                                                <Span Text="{Binding Wind.Speed}" />
+                                                <Span Style="{StaticResource unitLabelStyle}" Text="m/s" />
+                                                <Span Text="{x:Static system:Environment.NewLine}" />
+                                                <Span Style="{StaticResource unitLabelStyle}" Text="Wind Speed" />
+                                            </FormattedString>
+                                        </Label.FormattedText>
+                                    </Label>
+                                </StackLayout>
+
+                                <!--  Sunrise, Sunset  -->
+                                <StackLayout
+                                    HorizontalOptions="Center"
+                                    Orientation="Vertical"
+                                    Spacing="5"
+                                    VerticalOptions="Center">
+                                    <StackLayout
+                                        HorizontalOptions="Center"
+                                        Orientation="Horizontal"
+                                        Spacing="5"
+                                        VerticalOptions="Center">
+                                        <Image
+                                            HeightRequest="20"
+                                            Source="sunrise_icon"
+                                            VerticalOptions="Center" />
+                                        <Label
+                                            FontSize="14"
+                                            HorizontalTextAlignment="Center"
+                                            TextColor="White">
+                                            <Label.FormattedText>
+                                                <FormattedString>
+                                                    <Span Text="{Binding Sys.DTSunrise}" />
+                                                    <Span Text="{x:Static system:Environment.NewLine}" />
+                                                    <Span FontSize="12" Text="Sunrise" />
+                                                </FormattedString>
+                                            </Label.FormattedText>
+                                        </Label>
+                                    </StackLayout>
+                                    <StackLayout
+                                        HorizontalOptions="Center"
+                                        Orientation="Horizontal"
+                                        Spacing="5"
+                                        VerticalOptions="Center">
+                                        <Image
+                                            HeightRequest="20"
+                                            Source="sunset_icon"
+                                            VerticalOptions="Center" />
+                                        <Label
+                                            FontSize="14"
+                                            HorizontalTextAlignment="Center"
+                                            TextColor="White">
+                                            <Label.FormattedText>
+                                                <FormattedString>
+                                                    <Span Text="{Binding Sys.DTSunset}" />
+                                                    <Span Text="{x:Static system:Environment.NewLine}" />
+                                                    <Span FontSize="12" Text="Sunset" />
+                                                </FormattedString>
+                                            </Label.FormattedText>
+                                        </Label>
+                                    </StackLayout>
+                                </StackLayout>
+                            </StackLayout>
+                        </StackLayout>
+
+                    </DataTemplate>
+                </CollectionView.ItemTemplate>
+            </CollectionView>
+        </Grid>
+
+
+    </ContentPage.Content>
+    <ContentPage.Resources>
+        <ResourceDictionary>
+            <Style x:Key="unitLabelStyle" TargetType="Span">
+                <Setter Property="FontSize" Value="18" />
+            </Style>
+            <Style x:Key="mainLabelStyle" TargetType="Label">
+                <Setter Property="FontSize" Value="30" />
+                <Setter Property="HorizontalTextAlignment" Value="Center" />
+                <Setter Property="TextColor" Value="White" />
+            </Style>
+        </ResourceDictionary>
+    </ContentPage.Resources>
+</ContentPage>

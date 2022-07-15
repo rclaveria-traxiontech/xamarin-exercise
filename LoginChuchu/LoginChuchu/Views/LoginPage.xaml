@@ -1,0 +1,96 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage
+    x:Class="LoginChuchu.Views.LoginPage"
+    xmlns="http://xamarin.com/schemas/2014/forms"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+    xmlns:local="clr-namespace:LoginChuchu;assembly=LoginChuchu"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    NavigationPage.HasNavigationBar="false"
+    Shell.NavBarIsVisible="False"
+    mc:Ignorable="d">
+
+    <!--  Body  -->
+    <ContentPage.Content>
+        <Grid Padding="0">
+            <Image Aspect="AspectFill" Source="frog" />
+            <!--  Login Form Stack  -->
+            <Grid Padding="25" VerticalOptions="Center">
+                <!--  Semi Transparent Frame  -->
+                <Frame
+                    Padding="0"
+                    BackgroundColor="LightGray"
+                    CornerRadius="15"
+                    Opacity="0.8" />
+                <StackLayout Padding="10" VerticalOptions="Center">
+                    <!--  Frog Logo  -->
+                    <StackLayout>
+                        <Image HeightRequest="100" Source="frog_logo" />
+                        <Label
+                            FontAttributes="Bold"
+                            FontSize="30"
+                            HorizontalOptions="Center"
+                            Text="Frogs"
+                            TextColor="#986446" />
+                    </StackLayout>
+
+                    <!--  Email Address Entry  -->
+                    <Entry
+                        x:Name="emailAddress"
+                        Margin="5,10,5,0"
+                        ClearButtonVisibility="WhileEditing"
+                        HeightRequest="40"
+                        IsSpellCheckEnabled="false"
+                        IsTextPredictionEnabled="false"
+                        Keyboard="Email"
+                        Placeholder="Email"
+                        PlaceholderColor="#986446"
+                        ReturnType="Next"
+                        Text="{Binding EmailAddress}"
+                        TextColor="{Binding EmailTextColor}" />
+
+                    <!--  Password Entry  -->
+                    <Entry
+                        x:Name="password"
+                        Margin="5,10,5,0"
+                        ClearButtonVisibility="WhileEditing"
+                        HeightRequest="40"
+                        IsPassword="True"
+                        Placeholder="Password"
+                        PlaceholderColor="#986446"
+                        Text="{Binding Password}" />
+
+                    <!--  Login Button  -->
+                    <!--  Clicked="OnLoginButtonClicked"  -->
+                    <!--  Command="{Binding httpcommand}"  -->
+                    <Button
+                        Margin="20,5"
+                        BackgroundColor="#467A98"
+                        BorderRadius="20"
+                        Command="{Binding LoginButtonClickCommand}"
+                        Text="Login"
+                        VerticalOptions="Center" />
+
+                    <Button
+                        Margin="20,5"
+                        BackgroundColor="#467A98"
+                        BorderRadius="20"
+                        Command="{Binding WeatherButtonClickCommand}"
+                        Text="Weather"
+                        VerticalOptions="Center" />
+
+                    <Button
+                        Margin="20,5"
+                        BackgroundColor="#467A98"
+                        BorderRadius="20"
+                        Command="{Binding CalendarButtonClickCommand}"
+                        Text="Calendar"
+                        VerticalOptions="Center" />
+                </StackLayout>
+
+            </Grid>
+
+        </Grid>
+    </ContentPage.Content>
+
+</ContentPage>
